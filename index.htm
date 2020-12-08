@@ -7,17 +7,58 @@
   <title>The Great Race</title>
   <meta name="Final Project" content="The Great Race">
 <style>
-  div {
-    background-image: url('https://natewren.com/themes/wallpaper2/thegrid/thegrid_1.jpg');
+  body {
+    background-image: url("background.jpg");
+    background-repeat: repeat;  
+    background-size: 1920px 1080px;
   }
 </style>
 </head>
 
-<img src="trafficLight.jpg" alt="traffic Light">
+<lightCycles>
+  <img src="lightCycleRed.png" alt="Red Light Cycle" id="lightCycleRed" width="200" height="87.5" style="position: absolute; top: 900px; left: 10px;">
+  <img src="lightCycleBlue.png" alt="Blue Light Cycle" id="lightCycleBlue" width="200" height="87.5" style="position: absolute; top: 810px; left: 10px;">
+</lightCycles>
 
+<stopLight> 
+  <img src="neonStop.png" alt="Neon Stop" id="stopLight" usemap="#go" width="256" height="256" style="float: left;">
 
+  <map name="go">
+    <area shape="circle" coords="128,128,90" onclick="startRace()">
+  </map>
+
+  <script>
+    function startRace() {
+      alert("Race started.");
+
+      var x = document.getElementById("stopLight");
+      var y = document.getElementById("goLight");
+      x.style.display = "none";
+      y.style.display = "block";
+    }
+  </script>
+</stopLight>
+
+<goLight>
+  <img src="neonGo.png" alt="Neon Go" id="goLight" usemap="#stop" width="256" height="256" style="float: right; display: none;">
+
+  <map name="stop">
+    <area shape="circle" coords="128,128,90" onclick="stopRace()">
+  </map>
+
+  <script>
+    function stopRace() {
+      alert("Race has stopped.");
+
+      var x = document.getElementById("goLight");
+      var y = document.getElementById("stopLight");
+      x.style.display = "none";
+      y.style.display = "block";
+    }
+  </script>
+</goLight>
 
 <body>
-<p>Sample text</p>
+<p></p>
 </body>
 </html>
