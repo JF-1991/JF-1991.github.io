@@ -16,8 +16,8 @@
 </head>
 
 <lightCycles>
-  <img src="lightCycleRed.png" alt="Red Light Cycle" id="lightCycleRed" width="200" height="87.5" style="position: absolute; top: 900px; left: 10px;">
-  <img src="lightCycleBlue.png" alt="Blue Light Cycle" id="lightCycleBlue" width="200" height="87.5" style="position: absolute; top: 810px; left: 10px;">
+  <img src="lightCycleRed.png" alt="Red Light Cycle" id="lightCycleRed" width="200" height="87.5" style="position: absolute; top: 890px; left: 10px;">
+  <img src="lightCycleBlue.png" alt="Blue Light Cycle" id="lightCycleBlue" width="200" height="87.5" style="position: absolute; top: 800px; left: 10px;">
 </lightCycles>
 
 <winnerText>
@@ -35,11 +35,15 @@
       var winRedVar = document.getElementById("winRed");
       var neonStopLightVar = document.getElementById("stopLight");
       var neonGoLightVar = document.getElementById("goLight");
+      var lightCycleBlueVar = document.getElementById("lightCycleBlue");
+      var lightCycleRedVar = document.getElementById("lightCycleRed");
       
       winBlueVar.style.display = "none";
       winRedVar.style.display = "none";
       neonGoLightVar.style.display = "none";
       neonStopLightVar.style.display = "block";
+      lightCycleBlueVar.style.left = 0;
+      lightCycleRedVar.style.left = 0;
     }
   </script>
 </winnerText>
