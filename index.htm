@@ -28,11 +28,8 @@
     <area shape="rect" coords="100, 50, 550, 200" onclick="restartRace()">
   </map>
 
-  <map name="winred">
-    <area shape="rect" coords="100, 50, 550, 200" onclick="resartRace()">
-  </map>
-
   <script>
+    // Restart light color, cycle position, set winner banner to hidden
     function restartRace() {
       var winBlueVar = document.getElementById("winBlue");
       var winRedVar = document.getElementById("winRed");
@@ -48,16 +45,15 @@
 </winnerText>
 
 <stopLight> 
-  <img src="neonStop.png" alt="Neon Stop" id="stopLight" usemap="#go" width="256" height="256" style="float: left;">
+  <img src="neonStop.png" alt="Neon Stop" id="stopLight" usemap="#go" width="356" height="356" style="float: left;">
 
   <map name="go">
-    <area shape="circle" coords="128,128,90" onclick="startRace(), moveObject()">
+    <area shape="circle" coords="178,178,120" onclick="startRace(), moveObject()">
   </map>
 
   <script>
+    // Change light color from red to green
     function startRace() {
-      //alert("Race started.");
-
       var neonStopLight = document.getElementById("stopLight");
       var neoneGoLight = document.getElementById("goLight");
       neonStopLight.style.display = "none";
@@ -67,26 +63,12 @@
 </stopLight>
 
 <goLight>
-  <img src="neonGo.png" alt="Neon Go" id="goLight" usemap="#stop" width="256" height="256" style="float: left; display: none; position: absolute;">
-
-  <map name="stop">
-    <area shape="circle" coords="128,128,90" onclick="stopRace()">
-  </map>
-
-  <script>
-    function stopRace() {
-      //alert("Race has stopped.");
-
-      var neonGoVar = document.getElementById("goLight");
-      var neonStopVar = document.getElementById("stopLight");
-      neonGoVar.style.display = "none";
-      neonStopVar.style.display = "block";
-    }
-  </script>
+  <img src="neonGo.png" alt="Neon Go" id="goLight" usemap="#stop" width="356" height="356" style="float: left; display: none; position: absolute;">
 </goLight>
 
-<imageRace>
+<cycleRace>
   <script>
+    // Light cycle movement
     function moveObject() {
       var leftBlue = 0;
       var leftRed = 0;
@@ -95,9 +77,7 @@
       var winBlueVar = document.getElementById("winBlue");
       var winRedVar = document.getElementById("winRed");
       var timerID = 0;
-      //var timerIDRed = 0;
       
-      // Blue light cycle movement
       timerID = setInterval(function() {
         var randLengthBlue = Math.floor(Math.random() * 25 + 1);
         leftBlue += randLengthBlue;
@@ -114,21 +94,7 @@
         lightCycleBlueVar.style.left = leftBlue + "px";
         lightCycleRedVar.style.left = leftRed + "px";
       }, 50);
-
-      // Red light cycle movement
-      /* timerID = setInterval(function() {
-        var randLength = Math.floor(Math.random() * 25 + 1);
-        leftRed += randLength;
-        if(leftRed > 1300) {
-          clearInterval(timerID);
-        }
-        lightCycleRedVar.style.left = leftRed + "px";
-      }, 50); */
     }
   </script>
-</imageRace>
-
-<body>
-<p></p>
-</body>
+</cycleRace>
 </html>
